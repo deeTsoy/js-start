@@ -30,12 +30,27 @@ const personalMovieDB = {
     private: false
 };
 
-const a = prompt("last movie?", ""),
-      b = prompt("your rate?", ""),
-      c = prompt("last movie?", ""),
-      d = prompt("your rate?", "");
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+for (let i = 0; i < 2; i++){
+    const a = prompt("last movie?", ""),
+          b = prompt("your rate?", "");
+
+    if (a != null && b != null && a != '' && b != '' && a.length < 50){
+        personalMovieDB.movies[a] = b; 
+        console.log("done");
+    } else {
+        console.log("error");
+        i--;
+    }
+}
+if(personalMovieDB.count < 10){
+    console.log("недостаточно фильмов");
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    console.log("classic user");
+} else if (personalMovieDB.count >= 30 ){
+    console.log("you are cinemagolic");     
+} else {
+    console.log("error")
+} 
 
 console.log(personalMovieDB);
